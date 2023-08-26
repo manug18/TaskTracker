@@ -20,6 +20,14 @@ export const colors = {
     blue_800: "#4E5575",
     blue_900: "#0026B6",
   },
+  black1: {
+    black_100: "#201a31",
+  },
+  boxColor: "#38304d",
   primary: "#1e2e3d",
   secondary: "#273444",
+  primaryBackground: "#1A181D",
+  primaryCardColor: "#191a1c",
+  textColor: "#FFFFFF",
+  buttonColor: "#A1045A",
 };

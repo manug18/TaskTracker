@@ -34,7 +34,7 @@ export function Login() {
   return (
     <Stack
       sx={{
-        bgcolor: colors.primary,
+        bgcolor: colors.black1.black_100,
         height: "100%",
         width: "100%",
         flexDirection: "row",
@@ -43,7 +43,7 @@ export function Login() {
       <Stack width={"50%"}>
         <DisplayLottie animationData={login} />
       </Stack>
-      <Stack sx={{ placeItems: "center", bgcolor: "colors.secondary" }}>
+      <Stack sx={{ placeItems: "center" }}>
         <form
           style={{
             height: "100%",
@@ -51,33 +51,30 @@ export function Login() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: colors.secondary,
           }}
         >
           <Stack height="90%" spacing={3} justifyContent="center">
             <FormLabel
               sx={{
-                fontFamily: "Roboto",
                 fontSize: "28px",
-                fontWeight: 600,
                 lineHeight: "40px",
                 letterSpacing: "0.1px",
                 textAlign: "left",
-                // color: colors.primary,
+                color: colors.textColor,
               }}
             >
               Welcome!
             </FormLabel>
             <FormControl>
-              <Typography variant="body2">
-                Please enter the credentials you received from the email invite.
-              </Typography>
               <TextField
                 margin="normal"
                 // error={errors.email ? true : false}
                 required
                 placeholder="Email Address *"
-                variant="outlined"
+                sx={{
+                  bgcolor: colors.boxColor,
+                  borderRadius: "30px",
+                }}
                 size="small"
                 InputProps={{
                   name: "email",
@@ -101,23 +98,15 @@ export function Login() {
                 required
                 // error={errors.password ? true : false}
                 // type={showPassword ? "text" : "password"}
+                sx={{
+                  bgcolor: colors.boxColor,
+                  borderRadius: "30px",
+                }}
                 placeholder="Password *"
                 size="small"
                 inputProps={{
                   name: "password",
                 }}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      // onClick={handleClickShowPassword}
-                      // onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {/* {showPassword ? <VisibilityOff /> : <Visibility />} */}
-                    </IconButton>
-                  </InputAdornment>
-                }
                 startAdornment={
                   <InputAdornment position="start">
                     <LockIcon />
@@ -137,7 +126,6 @@ export function Login() {
                 alignItems="center"
                 marginTop="1em"
               >
-                <FormControlLabel control={<Checkbox />} label="Remember me" />
                 <Typography variant="h6">Forgot Password?</Typography>
               </Stack>
             </FormControl>
@@ -149,11 +137,7 @@ export function Login() {
               sx={{
                 width: "100%",
                 height: "2.5rem",
-                // backgroundColor: colors.primary,
-                // ":hover": {
-                //   backgroundColor: colors.primaryHover,
-                //   boxShadow: "none",
-                // },
+                backgroundColor: colors.buttonColor,
                 boxShadow: "none",
                 border: "none",
               }}
