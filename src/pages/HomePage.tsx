@@ -2,6 +2,10 @@ import { Button, Card, Modal, Stack, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { colors } from "../styles/Colors";
 import CreateTask from "../components/CreateTask";
+import DisplayLottie from "../components/displayLottie/DisplayLottie";
+import home from "../assets/lottieFiles/home.json";
+import TaskDisplay from "../components/TaskDisplay";
+import { CustomButton } from "../components/Atomic/CustomButton";
 
 export default function HomePage() {
   const [openSettings, setOpenSettings] = useState(false);
@@ -11,24 +15,42 @@ export default function HomePage() {
   };
 
   return (
-    <Stack bgcolor={colors.black} sx={{ width: "100%", height: "100%" }}>
-      <Typography color={colors.white}>this is home page</Typography>
-      <Card
-        variant="outlined"
-        sx={{ bgcolor: colors.primaryCardColor, height: "20%", width: "50%" }}
-        elevation={3}
-      >
-        <Typography color={colors.white}>hello</Typography>
-      </Card>
-      <Modal
-        open={openSettings}
-        onClose={handleSettingsModalClose}
-        hideBackdrop
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
-      >
-        <CreateTask />
-      </Modal>
-      <Button onClick={handleSettingSave}>Add a new Task</Button>
+    <Stack
+      bgcolor={colors.black1.black_100}
+      sx={{ width: "100%", height: "100%" }}
+      flexDirection={"row"}
+    >
+      <Stack>
+        <DisplayLottie animationData={home} />
+      </Stack>
+      <Stack width={"50%"}>
+        <Typography color={colors.white}>this is home page</Typography>
+
+        <TaskDisplay />
+        <TaskDisplay />
+        <TaskDisplay />
+
+        <Modal
+          open={openSettings}
+          onClose={handleSettingsModalClose}
+          // hideBackdrop
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+        >
+          <CreateTask />
+        </Modal>
+        <CustomButton
+          onClick={handleSettingSave}
+          size="small"
+          sx={{
+            bgcolor: colors.newTaskButtonColor,
+            ml: 19,
+            mt: 1,
+            width: "9rem",
+          }}
+        >
+          Add a new Task
+        </CustomButton>
+      </Stack>
     </Stack>
   );
 }

@@ -66,8 +66,7 @@ export function Login() {
               Welcome!
             </FormLabel>
             <FormControl>
-              <TextField
-                margin="normal"
+              <OutlinedInput
                 // error={errors.email ? true : false}
                 required
                 placeholder="Email Address *"
@@ -76,14 +75,14 @@ export function Login() {
                   borderRadius: "30px",
                 }}
                 size="small"
-                InputProps={{
+                inputProps={{
                   name: "email",
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <MailIcon />
-                    </InputAdornment>
-                  ),
                 }}
+                startAdornment={
+                  <InputAdornment position="start">
+                    <MailIcon />
+                  </InputAdornment>
+                }
                 // {...register("email", {
                 //   required: "Email Address is required",
                 //   pattern: EMAIL_VALIDATION_REGEX,

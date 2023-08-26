@@ -6,8 +6,9 @@ export const colors = {
     grey_300: "#E4E4E4",
     grey_500: "#DBE4E7",
     grey_600: "#757778",
-    grey_700: "#B7B7B7",
-    grey_800: "#C4C7C8",
+    grey_700: "#D9D9D9",
+    grey_800: "#787E8C",
+    grey_900: "#737373",
   },
   white: "#FFFFFF",
   black: "#000000",
@@ -30,4 +31,5 @@ export const colors = {
   primaryCardColor: "#191a1c",
   textColor: "#FFFFFF",
   buttonColor: "#A1045A",
+  newTaskButtonColor: "#72CC50",
 };
