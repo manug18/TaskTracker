@@ -1,11 +1,14 @@
 import { Button, Card, Modal, Stack, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { colors } from "../styles/Colors";
 import CreateTask from "../components/CreateTask";
 import DisplayLottie from "../components/displayLottie/DisplayLottie";
 import home from "../assets/lottieFiles/home.json";
 import TaskDisplay from "../components/TaskDisplay";
 import { CustomButton } from "../components/Atomic/CustomButton";
+import { getAllTask } from "../services/TestService";
+import { useQuery } from "@tanstack/react-query";
+import { TaskList } from "../services/models/TaskModel";
 
 export default function HomePage() {
   const [openSettings, setOpenSettings] = useState(false);
@@ -13,6 +16,14 @@ export default function HomePage() {
   const handleSettingSave = () => {
     setOpenSettings(true);
   };
+  const taskService = useQuery(["taskList"], getAllTask);
+
+  const [taskList, setTaskList] = useState<TaskList[]>([]);
+  useEffect(() => {
+    if (taskService.data?.data) {
+      setTaskList(taskService.data?.data);
+    }
+  }, [taskService]);
 
   return (
     <Stack
@@ -26,9 +37,9 @@ export default function HomePage() {
       <Stack width={"50%"}>
         <Typography color={colors.white}>this is home page</Typography>
 
-        <TaskDisplay />
-        <TaskDisplay />
-        <TaskDisplay />
+        {taskList.map((task, index) => (
+          <TaskDisplay key={index} task={task} />
+        ))}
 
         <Modal
           open={openSettings}

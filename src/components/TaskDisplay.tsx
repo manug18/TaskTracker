@@ -3,8 +3,12 @@ import React, { useState } from "react";
 import { colors } from "../styles/Colors";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { TaskList } from "../services/models/TaskModel";
+interface props {
+  task: TaskList;
+}
 
-export default function TaskDisplay() {
+export default function TaskDisplay({ task }: props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleDelete = () => {
     setIsModalOpen(true);
@@ -22,10 +26,10 @@ export default function TaskDisplay() {
           py={1}
           width="50%"
         >
-          title
+          {task.title}
         </Typography>
         <Typography color={colors.grey.grey_600} pr={2} pl={1} py={1}>
-          end date
+          {task.taskId}
         </Typography>
         <EditIcon sx={{ color: "#FCCF55" }} />
       </Stack>
@@ -37,9 +41,9 @@ export default function TaskDisplay() {
           pb={1}
           width="60%"
         >
-          Description
+          {task.description}
         </Typography>
-        <Chip label="prio" color="warning" />
+        <Chip label={task.priorityLevel} color="warning" />
         <DeleteIcon
           sx={{ color: "#C30101", cursor: "pointer" }}
           onClick={handleDelete}

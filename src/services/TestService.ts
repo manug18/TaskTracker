@@ -1,24 +1,14 @@
-import { getAxiosInstance, getConfigWithParams } from './BaseService';
-import { TestQueryRequest, TestQueryResponse, TestResponse } from './models/TestModel.data';
-import { Endpoints } from './Endpoint';
+import { getAxiosInstance, getNetworkConfig } from "./BaseService";
 
-export async function getAllPosts() {
-  const axios = getAxiosInstance();
-  const res = await axios.get<TestResponse[]>(Endpoints.test_posts);
-  return res.data;
-}
+import { Endpoints } from "./Endpoint";
+import { TaskLists } from "./models/TaskModel";
 
-export async function getIndividualPost(postId: string) {
+export async function getAllTask() {
   const axios = getAxiosInstance();
-  const res = await axios.get<TestResponse>(`${Endpoints.test_posts}/${postId}`);
-  return res.data;
-}
-
-export async function getCommentsOnPost(request: TestQueryRequest) {
-  const axios = getAxiosInstance();
-  const res = await axios.get<TestQueryResponse[]>(
-    Endpoints.test_comments,
-    getConfigWithParams(request, false)
+  const res = await axios.get<TaskLists>(
+    Endpoints.getAllTasks,
+    getNetworkConfig(false)
   );
+
   return res.data;
 }

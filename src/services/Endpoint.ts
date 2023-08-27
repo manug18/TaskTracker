@@ -1,8 +1,7 @@
 export enum Endpoints {
-  login = 'auth/login',
-  logout = 'auth/logout',
-  test_posts = 'posts',
-  test_comments = 'comments',
+  login = "auth/login",
+  logout = "auth/logout",
+  getAllTasks = "api/v1/task",
 }
 
 /**
