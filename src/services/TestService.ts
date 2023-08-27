@@ -1,7 +1,7 @@
 import { getAxiosInstance, getNetworkConfig } from "./BaseService";
 
 import { Endpoints } from "./Endpoint";
-import { TaskLists } from "./models/TaskModel";
+import { CreateTaskModel, TaskLists } from "./models/TaskModel";
 
 export async function getAllTask() {
   const axios = getAxiosInstance();
@@ -10,5 +10,15 @@ export async function getAllTask() {
     getNetworkConfig(false)
   );
 
+  return res.data;
+}
+
+export async function addTask(request: CreateTaskModel) {
+  const axios = getAxiosInstance();
+  const res = await axios.post(
+    Endpoints.getAllTasks,
+    request,
+    getNetworkConfig(false)
+  );
   return res.data;
 }

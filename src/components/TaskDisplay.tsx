@@ -29,7 +29,7 @@ export default function TaskDisplay({ task }: props) {
           {task.title}
         </Typography>
         <Typography color={colors.grey.grey_600} pr={2} pl={1} py={1}>
-          {task.taskId}
+          {task.endDate}
         </Typography>
         <EditIcon sx={{ color: "#FCCF55" }} />
       </Stack>

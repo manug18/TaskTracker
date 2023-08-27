@@ -4,8 +4,16 @@ export interface TaskList {
   description: string;
   priorityLevel: string;
   deleted: string;
-  endDate: Date;
+  endDate: string;
 }
 export interface TaskLists {
   data: TaskList[];
+}
+
+export interface CreateTaskModel {
+  title: string;
+  description: string;
+  priorityLevel: string;
+  isDeleted: boolean;
+  endDate: string;
 }
