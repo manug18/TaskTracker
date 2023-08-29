@@ -34,21 +34,20 @@ export default function HomePage() {
       <Stack>
         <DisplayLottie animationData={home} />
       </Stack>
-      <Stack width={"50%"}>
-        <Typography color={colors.white}>this is home page</Typography>
-
-        {taskList.map((task, index) => (
-          <TaskDisplay key={index} task={task} />
-        ))}
-
-        <Modal
-          open={openSettings}
-          onClose={handleSettingsModalClose}
-          // hideBackdrop
-          style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+      <Stack>
+        <Stack
+          my={2}
+          style={{
+            height: "80%",
+            overflowY: "auto",
+          }}
         >
-          <CreateTask />
-        </Modal>
+          <Stack>
+            {taskList.map((task, index) => (
+              <TaskDisplay key={index} task={task} />
+            ))}
+          </Stack>
+        </Stack>
         <CustomButton
           onClick={handleSettingSave}
           size="small"
@@ -62,6 +61,15 @@ export default function HomePage() {
           Add a new Task
         </CustomButton>
       </Stack>
+
+      <Modal
+        open={openSettings}
+        onClose={handleSettingsModalClose}
+        // hideBackdrop
+        // style={{ color: colors.blue.blue_700 }}
+      >
+        <CreateTask />
+      </Modal>
     </Stack>
   );
 }
