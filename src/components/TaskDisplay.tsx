@@ -28,10 +28,7 @@ export default function TaskDisplay({ task }: props) {
   };
 
   return (
-    <Card
-      variant="outlined"
-      sx={{ bgcolor: colors.blue.blue_700, mt: 2, mr: 7 }}
-    >
+    <Card variant="outlined" sx={{ bgcolor: colors.blue.blue_700, mt: 2 }}>
       <Stack flexDirection={"row"}>
         <Typography
           color={colors.grey.grey_800}
@@ -74,8 +71,8 @@ export default function TaskDisplay({ task }: props) {
       </Stack>
       <Modal
         open={isModalOpen}
-        // hideBackdrop
-        // style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+        hideBackdrop
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
       >
         <Typography>Are you sure you want to delete</Typography>
       </Modal>

@@ -65,10 +65,10 @@ export default function HomePage() {
       <Modal
         open={openSettings}
         onClose={handleSettingsModalClose}
-        // hideBackdrop
-        // style={{ color: colors.blue.blue_700 }}
+        hideBackdrop
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
       >
-        <CreateTask />
+        <CreateTask handleClose={handleSettingsModalClose} />
       </Modal>
     </Stack>
   );

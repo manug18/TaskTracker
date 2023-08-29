@@ -15,7 +15,11 @@ import { CreateTaskModel } from "../services/models/TaskModel";
 import { CustomButton } from "./Atomic/CustomButton";
 import { DatePicker, DateRangePicker } from "@mui/lab";
 
-export default function CreateTask() {
+type CreateTaskProps = {
+  handleClose: () => void;
+};
+
+export default function CreateTask({ handleClose }: CreateTaskProps) {
   const addTaskService = useMutation(addTask);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -58,7 +62,7 @@ export default function CreateTask() {
       endDate: endDate,
       status: status,
     };
-    addTaskService.mutate(data);
+    addTaskService.mutate(data, { onSuccess: handleClose });
   };
 
   return (
@@ -140,7 +144,7 @@ export default function CreateTask() {
       <Stack direction="row" marginTop="5vh" py={1.5} borderRadius="1vw">
         <Button
           variant="contained"
-          // onClick={handleClose}
+          onClick={handleClose}
           sx={{
             color: colors.blue,
             backgroundColor: colors.secondary,
@@ -152,7 +156,7 @@ export default function CreateTask() {
         <CustomButton
           variant="contained"
           onClick={handleSave}
-          loading={addTaskService.isLoading}
+          loading={addTaskService.isSuccess}
           sx={{ backgroundColor: colors.primary, width: "6rem" }}
         >
           Save
